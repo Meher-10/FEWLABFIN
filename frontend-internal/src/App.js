@@ -15,8 +15,13 @@ import AmazonProductCard from "./components/AmazonProductCard.jsx";
 import UpdateText from "./components/UpdateText.jsx";
 import MouseHover from "./components/MouseHover.jsx";
 import FocusBlurExample from "./components/FocusBlurExample.jsx";
+import Lifecycle from "./components/Lifecycle.jsx";
 function App() {
-  
+  const [showComponent, setShowComponent] = useState(true);
+
+  const toggleComponent = () => {
+    setShowComponent(prev => !prev);
+  };
 // let cars = [
 //   {
 //       cID: 1, 
@@ -114,8 +119,14 @@ function App() {
     <AmazonProductCard/> */}
     {/* <UpdateText/> */}
     {/* <MouseHover/> */}
-    <FocusBlurExample/>
-    
+    {/* <FocusBlurExample/> */}
+    <div style={{ textAlign: 'center', marginTop: '50px' }}>
+      <button onClick={toggleComponent}>
+        {showComponent ? 'Unmount Lifecycle' : 'Mount Lifecycle'}
+      </button>
+
+      {showComponent && <Lifecycle />}
+    </div>
 
   
     
